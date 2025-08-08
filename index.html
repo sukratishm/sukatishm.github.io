@@ -2,29 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Suks • Personal Site</title>
-  <meta name="description" content="Suks' personal site: projects, interests, and ways to connect." />
+  <title>Sukrati • Personal Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sukrati's personal site: projects, interests, and ways to connect." />
   <link rel="stylesheet" href="stylesheet.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="top">
-    <h1 class="section-title">Hi, I'm Suks 👋</h1>
-    <p class="tagline">Product Manager tinkering with web dev.</p>
-    <p>Find me on <a class="cta" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>.</p>
-    <img src="https://picsum.photos/800/300" alt="Abstract placeholder banner" class="banner" />
+  <!-- Top navigation / hero wrapper -->
+  <div id="top" class="container">
+    <header class="site-header">
+      <a href="/" class="logo">S<span>·</span></a>
+      <nav class="nav">
+        <!-- Change this GitHub link if your username is different -->
+        <a href="https://github.com/sukratishm" class="nav-link" target="_blank" rel="noopener">GitHub</a>
+        <a href="#projects" class="nav-link">Projects</a>
+      </nav>
+    </header>
+
+    <section class="hero card">
+      <h1 class="title section-title">Hi, I'm <span class="accent">Sukrati</span> 👋</h1>
+      <p class="tagline">Product Manager learning web dev—one clean commit at a time.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">Visit my GitHub</a>
+        <a class="btn" href="#projects">See projects</a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+           alt="Laptop on a desk with code on screen" class="banner" />
+    </section>
   </div>
 
-  <div class="card">
-    <h2 class="section-title">Projects</h2>
-    <ul>
-      <li class="pill">Mini site</li>
-      <li class="pill">Toy API</li>
-    </ul>
+  <!-- Projects section -->
+  <div class="container">
+    <section id="projects" class="projects-grid">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="project card">
+        <h3 class="project-title">Mini Site</h3>
+        <p class="project-desc">This very page—HTML + CSS, deployed on GitHub Pages.</p>
+        <a class="btn small" href="https://github.com/sukratishm" target="_blank" rel="noopener">Code</a>
+      </div>
+
+      <div class="project card">
+        <h3 class="project-title">Toy API</h3>
+        <p class="project-desc">A tiny API idea—coming soon as I learn more.</p>
+        <a class="btn small" href="https://github.com/sukratishm" target="_blank" rel="noopener">Code</a>
+      </div>
+    </section>
   </div>
 
-  <footer class="card">
-    <small>© 2025 Suks</small>
+  <footer class="site-footer container">
+    <small>© <span id="year"></span> Sukrati. Built with HTML & CSS.</small>
   </footer>
+
+  <script>
+    // Tiny enhancement: current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
