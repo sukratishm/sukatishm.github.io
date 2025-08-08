@@ -1,21 +1,29 @@
+/* ===== Palette (Stripe-inspired) ===== */
 :root{
-  --bg: #f8f9fa;
-  --text: #0a2540;
-  --muted: #4f5d75;
-  --border: #d0d7e2;
-  --card: #ffffff;
-  --accent: #0056ff;
+  --bg: #f6f9fc;          /* light neutral background */
+  --text: #0a2540;        /* deep navy text */
+  --muted: #4e5d78;       /* secondary text */
+  --card: #ffffff;        /* card surface */
+  --border: #d9e1ee;      /* light border */
+  --accent: #635bff;      /* Stripe purple */
+  --accent-2: #00d4ff;    /* cyan accent */
+  --accent-dark: #4f46e5; /* indigo hover */
 }
+
 @media (prefers-color-scheme: dark){
   :root{
-    --bg: #0b132b;
-    --text: #e0e6ed;
-    --muted: #a8b0bb;
-    --border: #1c2541;
-    --card: #1c2541;
-    --accent: #00b4d8;
+    --bg: #0a0f1a;        /* deep space */
+    --text: #e8eeff;
+    --muted: #a8b0c2;
+    --card: #0f1526;
+    --border: #1c2440;
+    --accent: #8b87ff;
+    --accent-2: #27e0ff;
+    --accent-dark: #7b75ff;
   }
 }
+
+/* ===== Base ===== */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body{
@@ -25,27 +33,97 @@ body{
   background: var(--bg);
   line-height: 1.6;
 }
-.container{ max-width: 760px; margin-inline: auto; padding: 24px; }
+
+/* top gradient strip */
+.topbar{
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+}
+
+/* layout */
+.container{ max-width: 960px; margin-inline: auto; padding: 24px; }
 .header{ display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; }
-.brand{ display:inline-grid; place-items:center; width:42px; height:42px; border-radius:8px; background: var(--accent); color:#fff; text-decoration:none; font-weight:800; font-size:18px; }
-.nav-link{ margin-left: 12px; color: var(--text); text-decoration: none; padding: 6px 10px; border-radius: 6px; transition: 0.2s; }
-.nav-link:hover{ color: #fff; background: var(--accent); }
-.card{ background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
-.title{ margin: 0 0 6px; font-size: clamp(26px, 5vw, 36px); font-weight: 700; }
-.section-title{ font-weight: 800; letter-spacing: .2px; margin-top: 0; }
-.accent{ color: var(--accent); }
-.tagline{ margin: 0; color: var(--muted); }
-.banner{ display:block; width:100%; margin-top: 16px; border-radius: 10px; border: 1px solid var(--border); }
-#projects{ margin-top: 8px; }
-.grid{ display: grid; gap: 16px; margin-top: 12px; grid-template-columns: 1fr; }
-@media (min-width: 720px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
-.project-title{ margin: 0 0 6px; font-size: 1.1rem; font-weight: 600; }
-.project-desc{ margin: 0 12px 12px 0; color: var(--muted); font-size: 0.95rem; }
-.btn{ display:inline-block; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); text-decoration:none; color: #fff; background: var(--accent); font-weight: 500; transition: 0.2s; }
-.btn:hover{ background: #003bb5; border-color: #003bb5; }
-.footer{ color: var(--muted); text-align:center; padding-bottom: 32px; font-size: 0.85rem; }
-/* Rubric bits */
-p { font-size: 1.02rem; } /* tag selector */
-.section-title { text-transform: none; } /* class selector used multiple times */
-#top { margin-bottom: 8px; } /* id selector + box model */
-a:hover { color: var(--accent); } /* anchor hover */
+
+/* brand + nav */
+.brand{
+  display:inline-grid; place-items:center;
+  width:44px; height:44px; border-radius:10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#fff; text-decoration:none; font-weight:800; font-size:18px;
+  box-shadow: 0 6px 14px rgba(99,91,255,0.25);
+}
+.nav-link{
+  margin-left: 12px; color: var(--text);
+  text-decoration: none; padding: 8px 10px; border-radius: 8px;
+  transition: background .2s, color .2s;
+}
+.nav-link:hover{ color:#fff; background: var(--accent); }
+
+/* cards */
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(10,37,64,0.08);
+}
+
+/* hero */
+.badge{
+  display:inline-block; padding: 4px 10px; border-radius:999px;
+  background: #eef2ff; border: 1px solid var(--border); color: #27356b; font-weight:600;
+}
+.title{ margin: 8px 0 6px; font-size: clamp(28px, 5vw, 40px); font-weight: 800; }
+.section-title{ font-weight: 800; letter-spacing: .2px; margin: 0 0 8px; }
+.accent{
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.tagline{ margin: 0 0 16px; color: var(--muted); }
+.cta-row{ display:flex; gap: 12px; flex-wrap: wrap; }
+
+.banner{
+  display:block; width:100%; margin-top: 16px; border-radius: 12px;
+  border: 1px solid var(--border); box-shadow: 0 10px 20px rgba(10,37,64,0.06);
+}
+
+/* buttons */
+.btn{
+  display:inline-block; padding: 10px 14px; border-radius: 10px;
+  text-decoration:none; font-weight:600; transition: transform .06s, box-shadow .2s, background .2s, color .2s;
+}
+.btn-primary{
+  color:#fff; background: var(--accent); border: 1px solid transparent;
+  box-shadow: 0 8px 18px rgba(99,91,255,0.35);
+}
+.btn-primary:hover{ transform: translateY(-1px); background: var(--accent-dark); }
+.btn-ghost{
+  color: var(--text); background: transparent; border: 1px solid var(--border);
+}
+.btn-ghost:hover{ background: #eef2ff; }
+
+/* projects */
+#projects{ margin-top: 12px; }
+.grid{
+  display:grid; gap: 18px; margin-top: 12px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 820px){
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+}
+.project-title{ margin: 0 0 6px; font-size: 1.1rem; font-weight: 700; }
+.project-desc{ margin: 0 0 12px; color: var(--muted); }
+
+/* footer */
+.footer{ color: var(--muted); text-align:center; padding-bottom: 36px; font-size: 0.92rem; }
+
+/* ===== Rubric items ===== */
+/* tag selector on <p> */
+p { font-size: 1.04rem; }
+/* class selector used 2+ times */
+.section-title { text-transform: none; }
+/* id selector + box model */
+#top { margin-bottom: 10px; }
+/* anchor hover color change (global) */
+a:hover { color: var(--accent); }
+/* box model changes are present on .card/.btn/.banner */

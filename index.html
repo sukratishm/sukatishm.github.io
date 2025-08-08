@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Sukrati • Portfolio v15</title>
+  <title>Sukrati • Portfolio v17</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sukrati's portfolio: simple, clean, and easy to read." />
-  <!-- IMPORTANT: use style.css (not stylesheet.css). v param busts cache -->
-  <link rel="stylesheet" href="style.css?v=15" />
+  <meta name="description" content="Sukrati's portfolio: clean projects, modern UI, and accessible design." />
+  <!-- IMPORTANT: use style.css (cache-busted) -->
+  <link rel="stylesheet" href="style.css?v=17" />
 </head>
 <body>
+  <!-- Gradient top bar -->
+  <div class="topbar"></div>
+
   <!-- Header / hero -->
   <div id="top" class="container">
     <header class="header">
-      <a class="brand" href="/">S</a>
+      <a class="brand" href="/" aria-label="Home">S</a>
       <nav class="nav">
         <a class="nav-link" href="#projects">Projects</a>
         <a class="nav-link" href="https://github.com/sukratishm" target="_blank" rel="noopener">GitHub</a>
@@ -20,14 +23,15 @@
     </header>
 
     <section class="hero card">
-      <div style="display:inline-block;padding:4px 10px;border:1px solid #e6e9ef;border-radius:999px;background:#eef4ff;color:#1e40af;font-weight:600;margin-bottom:10px;">
-        Updated v15
-      </div>
+      <span class="badge">Updated v17</span>
       <h1 class="title section-title">Hi, I'm <span class="accent">Sukrati</span> 👋</h1>
-      <p class="tagline">Product Manager learning web dev—keeping it clean, fast, and accessible.</p>
-      <img class="banner" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"
-           alt="Minimal workspace with a keyboard and notebook" />
-      <p style="margin-top:12px">Find me on <a class="inline-link" href="https://github.com/sukratishm" target="_blank" rel="noopener">GitHub</a>.</p>
+      <p class="tagline">Product Manager learning web dev—clear, fast, accessible.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">View GitHub</a>
+        <a class="btn btn-ghost" href="#projects">See Projects</a>
+      </div>
+      <img class="banner" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop"
+           alt="Minimal desk setup with laptop and coffee" />
     </section>
   </div>
 
@@ -38,20 +42,20 @@
       <div class="grid">
         <article class="project card">
           <h3 class="project-title">Mini Site</h3>
-          <p class="project-desc">This portfolio page—HTML & CSS, deployed on GitHub Pages.</p>
-          <a class="btn" href="https://github.com/sukratishm" target="_blank" rel="noopener">View code</a>
+          <p class="project-desc">This portfolio—HTML & CSS, deployed with GitHub Pages.</p>
+          <a class="btn btn-primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">View code</a>
         </article>
 
         <article class="project card">
           <h3 class="project-title">Toy API</h3>
           <p class="project-desc">A tiny API concept—documented endpoints, coming soon.</p>
-          <a class="btn" href="https://github.com/sukratishm" target="_blank" rel="noopener">View code</a>
+          <a class="btn btn-primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">View code</a>
         </article>
 
         <article class="project card">
           <h3 class="project-title">UI Sandbox</h3>
           <p class="project-desc">Playing with layouts, spacing, and components.</p>
-          <a class="btn" href="https://github.com/sukratishm" target="_blank" rel="noopener">View code</a>
+          <a class="btn btn-primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">View code</a>
         </article>
       </div>
     </section>
@@ -61,6 +65,8 @@
     <small>© <span id="year"></span> Sukrati. Built with HTML & CSS.</small>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
