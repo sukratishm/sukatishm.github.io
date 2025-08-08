@@ -1,18 +1,17 @@
-/* ===== Palette (Stripe-inspired) ===== */
+/* ===== Palette (Stripe-inspired, high contrast) ===== */
 :root{
   --bg: #f6f9fc;          /* light neutral background */
   --text: #0a2540;        /* deep navy text */
   --muted: #4e5d78;       /* secondary text */
   --card: #ffffff;        /* card surface */
   --border: #d9e1ee;      /* light border */
-  --accent: #635bff;      /* Stripe purple */
+  --accent: #635bff;      /* purple */
   --accent-2: #00d4ff;    /* cyan accent */
   --accent-dark: #4f46e5; /* indigo hover */
 }
-
 @media (prefers-color-scheme: dark){
   :root{
-    --bg: #0a0f1a;        /* deep space */
+    --bg: #0a0f1a;
     --text: #e8eeff;
     --muted: #a8b0c2;
     --card: #0f1526;
@@ -69,10 +68,6 @@ body{
 }
 
 /* hero */
-.badge{
-  display:inline-block; padding: 4px 10px; border-radius:999px;
-  background: #eef2ff; border: 1px solid var(--border); color: #27356b; font-weight:600;
-}
 .title{ margin: 8px 0 6px; font-size: clamp(28px, 5vw, 40px); font-weight: 800; }
 .section-title{ font-weight: 800; letter-spacing: .2px; margin: 0 0 8px; }
 .accent{
@@ -81,6 +76,8 @@ body{
 }
 .tagline{ margin: 0 0 16px; color: var(--muted); }
 .cta-row{ display:flex; gap: 12px; flex-wrap: wrap; }
+.inline-link{ color: var(--accent); text-decoration: none; }
+.inline-link:hover{ color: var(--accent-dark); }
 
 .banner{
   display:block; width:100%; margin-top: 16px; border-radius: 12px;
