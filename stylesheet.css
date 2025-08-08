@@ -1,1 +1,22 @@
+/* tag selector */
+p { line-height: 1.6; font-size: 1.05rem; }
+
+/* class used on 2+ elements (h1, h2) */
+.section-title { font-family: system-ui, sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+
+/* id selector + box model props */
+#top { padding: 24px; margin-bottom: 20px; border-bottom: 2px solid #ddd; }
+
+/* link + hover color change */
+a { text-decoration: none; color: #0a58ca; }
+a:hover { color: #d63384; }
+
+/* reusable class (cards) + box model */
+.card { border: 1px solid #e5e5e5; padding: 16px; margin: 16px 0; border-radius: 8px; }
+
+/* reusable class */
+.pill { display: inline-block; padding: 4px 10px; margin: 4px; border: 1px solid #bbb; border-radius: 999px; }
+
+/* image style */
+.banner { display: block; width: 100%; max-width: 800px; margin: 12px 0; }
 
