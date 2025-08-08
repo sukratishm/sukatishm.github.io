@@ -2,66 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Sukrati • Personal Site</title>
+  <title>Sukrati • Portfolio v13</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sukrati's personal site: projects, interests, and ways to connect." />
-  <link rel="stylesheet" href="stylesheet.css?v=11" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Sukrati's portfolio: clean HTML/CSS, a Projects section, and links." />
+  <!-- NOTE: using style.css with a version to bust cache -->
+  <link rel="stylesheet" href="style.css?v=13" />
 </head>
 <body>
-  <!-- Header / Hero -->
-  <div id="top" class="container">
-    <header class="site-header">
-      <a href="/" class="logo">S<span>·</span></a>
+
+  <!-- Header / Top section -->
+  <div id="top" class="wrap">
+    <header class="header">
+      <a class="brand" href="/">S</a>
       <nav class="nav">
-        <a href="https://github.com/sukratishm" class="nav-link" target="_blank" rel="noopener">GitHub</a>
-        <a href="#projects" class="nav-link">Projects</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="https://github.com/sukratishm" target="_blank" rel="noopener">GitHub</a>
       </nav>
     </header>
 
     <section class="hero card">
+      <div class="version-badge">v13</div>
       <h1 class="title section-title">Hi, I'm <span class="accent">Sukrati</span> 👋</h1>
       <p class="tagline">Product Manager learning web dev—one clean commit at a time.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">Visit my GitHub</a>
-        <a class="btn" href="#projects">See projects</a>
-      </div>
+      <p>
+        Find me on
+        <a class="inline-link" href="https://github.com/sukratishm" target="_blank" rel="noopener">GitHub</a>.
+      </p>
       <img
-        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
-        alt="Laptop on a desk with code on screen"
         class="banner"
+        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+        alt="Laptop with code — banner image"
       />
     </section>
   </div>
 
   <!-- Projects -->
-  <div class="container">
-    <section id="projects" class="projects-grid">
+  <main class="wrap">
+    <section id="projects" class="projects">
       <h2 class="section-title">Projects</h2>
 
-      <div class="project card">
-        <h3 class="project-title">Mini Site</h3>
-        <p class="project-desc">This page—HTML + CSS, deployed with GitHub Pages.</p>
-        <a class="btn small" href="https://github.com/sukratishm" target="_blank" rel="noopener">Code</a>
-      </div>
+      <article class="project card">
+        <h3 class="project-name">Mini Site</h3>
+        <p class="project-desc">This portfolio page—HTML & CSS, deployed on GitHub Pages.</p>
+        <a class="btn" href="https://github.com/sukratishm" target="_blank" rel="noopener">Code</a>
+      </article>
 
-      <div class="project card">
-        <h3 class="project-title">Toy API</h3>
+      <article class="project card">
+        <h3 class="project-name">Toy API</h3>
         <p class="project-desc">A tiny API concept—coming soon as I learn more.</p>
-        <a class="btn small" href="https://github.com/sukratishm" target="_blank" rel="noopener">Code</a>
-      </div>
+        <a class="btn" href="https://github.com/sukratishm" target="_blank" rel="noopener">Code</a>
+      </article>
 
-      <div class="project card">
-        <h3 class="project-title">UI Sandbox</h3>
+      <article class="project card">
+        <h3 class="project-name">UI Sandbox</h3>
         <p class="project-desc">Experiments with layout, buttons, and color systems.</p>
-        <a class="btn small" href="https://github.com/sukratishm" target="_blank" rel="noopener">Code</a>
-      </div>
+        <a class="btn" href="https://github.com/sukratishm" target="_blank" rel="noopener">Code</a>
+      </article>
     </section>
-  </div>
+  </main>
 
-  <!-- Footer -->
-  <footer class="site-footer container">
+  <footer class="wrap footer">
     <small>© <span id="year"></span> Sukrati. Built with HTML & CSS.</small>
   </footer>
 
