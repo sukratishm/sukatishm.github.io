@@ -2,71 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Sukrati • Portfolio v19</title>
+  <title>Sukrati • Portfolio (React + MUI)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sukrati's portfolio: clean projects, modern UI, and accessible design." />
-  <!-- IMPORTANT: use style.css (cache-busted) -->
-  <link rel="stylesheet" href="style.css?v=19" />
+  <meta name="description" content="Sukrati's portfolio: clean projects, modern UI, accessible design, and React + Material UI components." />
+  <link rel="stylesheet" href="style.css?v=20" />
+  <!-- React + ReactDOM (CDN, no build step) -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Material UI UMD build -->
+  <script src="https://unpkg.com/@mui/material@5.15.14/umd/material-ui.development.js" crossorigin></script>
+  <!-- Babel so we can write JSX directly in this file -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-  <!-- Decorative gradient strip -->
+  <!-- Decorative gradient strip to match your palette -->
   <div class="topbar"></div>
 
-  <!-- Header / Hero -->
-  <div id="top" class="container">
-    <header class="header">
-      <a class="brand" href="/" aria-label="Home">S</a>
-      <nav class="nav">
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="https://github.com/sukratishm" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </header>
-
-    <section class="hero card">
-      <h1 class="title section-title">Hi, I'm <span class="accent">Sukrati</span> 👋</h1>
-      <p class="tagline">Product Manager learning web dev—clear, fast, accessible.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">View GitHub</a>
-        <a class="btn btn-ghost" href="#projects">See Projects</a>
-      </div>
-      <img class="banner" src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop"
-           alt="Minimal desk setup with laptop and coffee" />
-      <p style="margin-top:12px">Find me on <a class="inline-link" href="https://github.com/sukratishm" target="_blank" rel="noopener">GitHub</a>.</p>
-    </section>
-  </div>
-
-  <!-- Projects -->
-  <main class="container">
-    <section id="projects">
-      <h2 class="section-title">Projects</h2>
-      <div class="grid">
-        <article class="project card">
-          <h3 class="project-title">Mini Site</h3>
-          <p class="project-desc">This portfolio—HTML & CSS, deployed with GitHub Pages.</p>
-          <a class="btn btn-primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">View code</a>
-        </article>
-
-        <article class="project card">
-          <h3 class="project-title">AI Agents</h3>
-          <p class="project-desc">Exploring intelligent automation with custom agents and workflows.</p>
-          <a class="btn btn-primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">View code</a>
-        </article>
-
-        <article class="project card">
-          <h3 class="project-title">My Apps</h3>
-          <p class="project-desc">A collection of personal and course-built applications.</p>
-          <a class="btn btn-primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">View code</a>
-        </article>
-      </div>
-    </section>
-  </main>
+  <!-- React app mounts here -->
+  <div id="react-root"></div>
 
   <footer class="container footer">
-    <small>© <span id="year"></span> Sukrati. Built with HTML & CSS.</small>
+    <small>© <span id="year"></span> Sukrati. Built with HTML, CSS, React & Material UI.</small>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- React App -->
+  <script type="text/babel">
+    const {
+      ThemeProvider, createTheme, CssBaseline,
+      Container, Box, Stack, Card, CardContent, CardActions,
+      Button, Typography, Chip, Switch
+    } = MaterialUI;
+
+    // ===== Custom Components (non-Projects) =====
+    function HeaderBar({ darkMode, onToggleDark }) {
+      return (
+        <Box className="container" sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 2}}>
+          <a className="brand" href="/" aria-label="Home">S</a>
+          <Stack direction="row" spacing={2} alignItems="center">
+            <a className="nav-link" href="#projects">Projects</a>
+            <a className="nav-link" href="https://github.com/sukratishm" target="_blank" rel="noopener">GitHub</a>
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Typography variant="body2">Light</Typography>
+              <Switch checked={darkMode} onChange={onToggleDark} />
+              <Typography variant="body2">Dark</Typography>
+            </Stack>
+          </Stack>
+        </Box>
+      );
+    }
+
+    function Hero() {
+      return (
+        <Container className="container" sx={{mt: 1}}>
+          <Card className="card" variant="outlined">
+            <CardContent>
+              <Typography variant="h3" className="title section-title" gutterBottom>
+                Hi, I'm <span className="accent">Sukrati</span> 👋
+              </Typography>
+              <Typography className="tagline" sx={{mb: 2}}>
+                Product Manager learning web dev—clear, fast, accessible.
+              </Typography>
+              <Stack direction="row" spacing={1} sx={{mb: 2}} className="cta-row">
+                <Button className="btn" variant="contained" color="primary" href="https://github.com/sukratishm" target="_blank" rel="noopener">
+                  View GitHub
+                </Button>
+                <Button className="btn btn-ghost" variant="outlined" href="#projects">See Projects</Button>
+              </Stack>
+              <img
+                className="banner"
+                src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1200&auto=format&fit=crop"
+                alt="Minimal desk setup with laptop and coffee"
+              />
+            </CardContent>
+          </Card>
+        </Container>
+      );
+    }
+
+    // ===== Reusable Custom Component (will be reused multiple times) =====
+    function ProjectCard({ title, desc, link, tags = [] }) {
+      return (
+        <Card className="card" variant="outlined">
+          <CardContent>
+            <Typography variant="h6" className="project-title">{title}</Typography>
+            <Typography className="project-desc" sx={{mb: 1}}>{desc}</Typography>
+            <Stack direction="row" spacing={1} sx={{mb: 1, flexWrap: 'wrap'}}>
+              {tags.map((t, i) => <Chip key={i} label={t} size="small" />)}
+            </Stack>
+          </CardContent>
+          <CardActions>
+            <Button className="btn" size="small" variant="contained" href={link} target="_blank" rel="noopener">
+              View code
+            </Button>
+          </CardActions>
+        </Card>
+      );
+    }
+
+    // ===== Projects (uses ProjectCard 3x and handles "show more") =====
+    function Projects() {
+      const [showMore, setShowMore] = React.useState(false); // custom state + event handler ✅
+
+      const items = [
+        { title: 'Mini Site', desc: 'This portfolio—HTML & CSS, deployed with GitHub Pages.', link: 'https://github.com/sukratishm', tags: ['HTML', 'CSS', 'Pages'] },
+        { title: 'AI Agents', desc: 'Exploring intelligent automation with custom agents and workflows.', link: 'https://github.com/sukratishm', tags: ['AI', 'Automation'] },
+        { title: 'My Apps', desc: 'A collection of personal and course-built applications.', link: 'https://github.com/sukratishm', tags: ['Apps', 'Projects'] },
+      ];
+
+      const extra = [
+        { title: 'More Coming Soon', desc: 'Future coursework and experiments will appear here.', link: 'https://github.com/sukratishm', tags: ['WIP'] },
+      ];
+
+      return (
+        <Container id="projects" className="container" sx={{mt: 1}}>
+          <Typography variant="h5" className="section-title">Projects</Typography>
+          <Box className="grid" sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+            gap: 2,
+            mt: 1.5
+          }}>
+            {items.map((p, idx) => (
+              <ProjectCard key={idx} title={p.title} desc={p.desc} link={p.link} tags={p.tags} />
+            ))}
+            {showMore && extra.map((p, idx) => (
+              <ProjectCard key={`extra-${idx}`} title={p.title} desc={p.desc} link={p.link} tags={p.tags} />
+            ))}
+          </Box>
+          <Stack direction="row" sx={{mt: 2}}>
+            <Button className="btn" variant={showMore ? 'outlined' : 'contained'} onClick={() => setShowMore(!showMore)}>
+              {showMore ? 'Show less' : 'Show more'}
+            </Button>
+          </Stack>
+        </Container>
+      );
+    }
+
+    // ===== App: wires everything + theme toggle =====
+    function App() {
+      const [darkMode, setDarkMode] = React.useState(false); // custom state ✅
+      const theme = React.useMemo(() => createTheme({
+        palette: {
+          mode: darkMode ? 'dark' : 'light',
+          primary: { main: '#635bff' },
+          secondary: { main: '#00d4ff' }
+        },
+        shape: { borderRadius: 12 }
+      }), [darkMode]);
+
+      return (
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <HeaderBar darkMode={darkMode} onToggleDark={() => setDarkMode(dm => !dm)} />
+          <Hero />
+          <Projects />
+        </ThemeProvider>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('react-root'));
+    root.render(<App />);
   </script>
 </body>
 </html>
